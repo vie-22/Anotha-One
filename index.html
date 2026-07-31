@@ -206,7 +206,67 @@ font-size:50px;
 .paper p{
 margin-bottom:22px;
 }
+#musicBar{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(255,184,207,.95);
+    backdrop-filter:blur(10px);
+    color:white;
+    padding:12px 18px;
+    z-index:999;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
 
+.songInfo{
+    text-align:center;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.timelineContainer{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.timelineContainer span{
+    width:40px;
+    font-size:13px;
+    text-align:center;
+}
+
+#timeline{
+    flex:1;
+    cursor:pointer;
+    accent-color:white;
+}
+
+.musicControls{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
+
+.musicControls button{
+    border:none;
+    background:white;
+    color:#d35b87;
+    border-radius:20px;
+    padding:8px 15px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.musicControls button:hover{
+    background:#ffe8f1;
+    transform:scale(1.05);
+}
+    
 </style>
 </head>
 <body>
@@ -248,9 +308,23 @@ document.body.appendChild(heart);
 
 <div id="musicBar">
 
-    <span class="songTitle">
+    <div class="songInfo">
         🎵 Now Playing: Strawberries and Cigarettes — Troye Sivan
-    </span>
+    </div>
+
+    <div class="timelineContainer">
+        <span id="currentTime">0:00</span>
+
+        <input
+            type="range"
+            id="timeline"
+            value="0"
+            min="0"
+            max="100"
+        >
+
+        <span id="duration">0:00</span>
+    </div>
 
     <div class="musicControls">
         <button id="playPauseBtn">⏸ Pause</button>
@@ -258,7 +332,6 @@ document.body.appendChild(heart);
     </div>
 
 </div>
-
 <!-- Landing -->
 
 <div id="landing">
@@ -343,7 +416,46 @@ window.scrollTo(0,0);
 },2500);
 
 }
+const timeline = document.getElementById("timeline");
+const currentTimeText = document.getElementById("currentTime");
+const durationText = document.getElementById("duration");
 
+// Format seconds into M:SS
+function formatTime(seconds){
+
+    const minutes = Math.floor(seconds / 60);
+
+    const secs = Math.floor(seconds % 60);
+
+    return minutes + ":" + (secs < 10 ? "0" : "") + secs;
+
+}
+
+// Once music loads
+music.addEventListener("loadedmetadata", ()=>{
+
+    timeline.max = Math.floor(music.duration);
+
+    durationText.textContent = formatTime(music.duration);
+
+});
+
+// Update timeline while playing
+music.addEventListener("timeupdate", ()=>{
+
+    timeline.value = music.currentTime;
+
+    currentTimeText.textContent = formatTime(music.currentTime);
+
+});
+
+// User drags the timeline
+timeline.addEventListener("input", ()=>{
+
+    music.currentTime = timeline.value;
+
+});
+    
 </script>
 
 </body>
