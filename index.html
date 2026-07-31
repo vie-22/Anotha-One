@@ -47,19 +47,52 @@ opacity:0;
 }
 }
 
-/* Tulips */
+/* Tulip Images */
 
 .tulip{
-position:fixed;
-font-size:38px;
-opacity:.5;
-z-index:-1;
+    position:fixed;
+    width:130px;
+    opacity:.85;
+    z-index:-1;
+    pointer-events:none;
+    animation: sway 5s ease-in-out infinite;
 }
 
-.t1{left:2%;bottom:10px;}
-.t2{right:3%;bottom:20px;}
-.t3{left:10%;top:10px;}
-.t4{right:12%;top:15px;}
+.t1{
+    left:0;
+    bottom:0;
+}
+
+.t2{
+    right:0;
+    bottom:0;
+}
+
+.t3{
+    left:20px;
+    top:20px;
+    width:90px;
+    transform:rotate(-20deg);
+}
+
+.t4{
+    right:20px;
+    top:20px;
+    width:90px;
+    transform:rotate(20deg);
+}
+
+@keyframes sway{
+    0%{
+        transform:rotate(0deg);
+    }
+    50%{
+        transform:rotate(3deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}
 
 /* Landing */
 
