@@ -197,88 +197,88 @@ flex-direction:column;
 
 position:fixed;
 
-top:-140px;       /* Starts above the screen */
+top:-140px;
 left:0;
 right:0;
 
 margin:auto;
 
 width:100%;
-max-width:100%;
 
 background:rgba(255,255,255,.95);
 backdrop-filter:blur(15px);
 
 padding:15px 20px;
 
-border-radius:0 0 25px 25px;   /* Rounded only at the bottom */
+border-radius:0 0 25px 25px;
 
 box-shadow:0 8px 25px rgba(255,125,170,.18);
 
 z-index:999999;
 
 transition:top .7s ease;
-}
 
-.player-content{
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-}
-
-.song-info{
-width:100%;
 text-align:center;
 }
+
+
+.song-info{
+text-align:center;
+width:100%;
+}
+
 
 .song-title{
 font-size:16px;
 font-weight:600;
-color:#b84d73;
-line-height:1.2;
-text-align:center;
 
-white-space:normal;
+color:#b84d73;
+
+line-height:1.2;
 }
+
 
 .artist{
 font-size:13px;
-font-weight:400;
+
 color:#d07a98;
+
 margin-top:3px;
-text-align:center;
 }
+
 
 .controls{
-position:absolute;
-right:20px;
 
 display:flex;
+
+justify-content:center;
+
 align-items:center;
-gap:8px;
+
+gap:12px;
+
+margin-top:12px;
 }
 
-display:flex;
-align-items:center;
-gap:8px;
-}
 
 .control-btn{
+
 width:42px;
 height:42px;
-border:none;
-border-radius:50%;
-background:#ff8fb7;
-color:white;
-font-size:16px;
-cursor:pointer;
-transition:.25s;
-}
 
-.control-btn:hover{
-transform:scale(1.08);
-background:#ff6fa4;
+border:none;
+
+border-radius:50%;
+
+background:#ff8fb7;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.25s;
 }
 
 .progress{
@@ -422,11 +422,6 @@ font-size:12px;
 text-align:center;
 }
 
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-}
-
 .now-playing{
 font-size:9px;
 }
@@ -471,37 +466,30 @@ Loading Vie's message
 
 <!-- Music Player -->
 
-<!-- Music Player -->
-
 <div class="player" id="player">
 
-    <div class="player-content">
+    <div class="song-info">
 
-        <div class="song-info">
-
-            <div class="song-title">
-                🍓 Strawberries & Cigarettes
-            </div>
-
-            <div class="artist">
-                Troye Sivan
-            </div>
-
+        <div class="song-title">
+            🍓 Strawberries & Cigarettes
         </div>
 
-
-        <div class="controls">
-
-            <button class="control-btn" id="muteBtn">
-                🔊
-            </button>
-
-            <button class="control-btn" id="playPause">
-                ⏸
-            </button>
-
+        <div class="artist">
+            Troye Sivan
         </div>
 
+    </div>
+
+
+    <div class="controls">
+
+        <button class="control-btn" id="muteBtn">
+            🔊
+        </button>
+
+        <button class="control-btn" id="playPause">
+            ⏸
+        </button>
 
     </div>
 
@@ -517,8 +505,8 @@ Loading Vie's message
 
     </div>
 
-
 </div>
+   
 <!-- Letter -->
 
 <div id="letterPage">
