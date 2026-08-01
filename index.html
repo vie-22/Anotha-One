@@ -191,29 +191,25 @@ opacity 1s ease;
    Music Player
 =========================== */
 
-/* ===========================
-   Music Player
-=========================== */
-
 .player{
 display:none;
 
 position:fixed;
-top:-150px;
+top:-180px;
 left:50%;
 transform:translateX(-50%);
 
-width:92%;
-max-width:520px;
+width:calc(100% - 20px);
+max-width:480px;
 
 background:rgba(255,255,255,.96);
 backdrop-filter:blur(12px);
 
-padding:16px;
+padding:14px;
 
-border-radius:24px;
+border-radius:22px;
 
-box-shadow:0 10px 30px rgba(255,125,170,.18);
+box-shadow:0 10px 25px rgba(255,125,170,.18);
 
 z-index:999999;
 
@@ -307,26 +303,12 @@ text-align:center;
    Mobile Responsive
 =========================== */
 
-@media (max-width: 768px){
-
-/* Intro Image */
-#photo{
-width:190px;
-height:190px;
-border-radius:18px;
-}
-
-.tap{
-font-size:17px;
-padding:0 20px;
-text-align:center;
-}
-
-/* Music Player */
+@media (max-width:768px){
 
 .player{
-width:94%;
-padding:12px;
+width:calc(100% - 16px);
+padding:10px;
+top:-170px;
 }
 
 .song-title{
@@ -338,26 +320,30 @@ font-size:11px;
 }
 
 .player-row{
-padding:10px 12px;
-gap:8px;
+padding:8px 10px;
+gap:6px;
 }
 
 .control-btn{
 width:34px;
 height:34px;
 font-size:14px;
+flex-shrink:0;
+}
+
+#timeline{
+flex:1;
+min-width:0;
 }
 
 #currentTime,
 #duration{
-font-size:11px;
-min-width:30px;
+font-size:10px;
+min-width:28px;
 }
 
-/* Letter */
-
 #letterPage{
-padding-top:190px;
+padding-top:165px;
 }
 
 .paper{
