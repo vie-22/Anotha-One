@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Febylat ❤️</title>
+<title>For Vie ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,135 +17,71 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Poppins,sans-serif;
-background:#ffdbe8;
-overflow-x:hidden;
+font-family:'Poppins',sans-serif;
+background:#ffd9e8;
+overflow:hidden;
 }
 
 /* Floating Hearts */
 
-.heart{
+.hearts{
 position:fixed;
-font-size:18px;
-animation:float 10s linear infinite;
-opacity:.25;
+width:100%;
+height:100%;
 pointer-events:none;
-z-index:-1;
+overflow:hidden;
+z-index:0;
+}
+
+.heart{
+position:absolute;
+bottom:-30px;
+color:#ff7ea8;
+animation:float linear infinite;
+opacity:.45;
 }
 
 @keyframes float{
 0%{
-transform:translateY(110vh);
-opacity:0;
-}
-20%{
-opacity:.3;
+transform:translateY(0) scale(1);
+opacity:.4;
 }
 100%{
-transform:translateY(-20vh);
+transform:translateY(-120vh) translateX(40px) scale(1.5);
 opacity:0;
 }
 }
 
-/* Tulip Images */
+/* Intro */
 
-.tulip{
-    position:fixed;
-    width:130px;
-    opacity:.85;
-    z-index:-1;
-    pointer-events:none;
-    animation: sway 5s ease-in-out infinite;
-}
-
-.t1{
-    left:0;
-    bottom:0;
-}
-
-.t2{
-    right:0;
-    bottom:0;
-}
-
-.t3{
-    left:20px;
-    top:20px;
-    width:90px;
-    transform:rotate(-20deg);
-}
-
-.t4{
-    right:20px;
-    top:20px;
-    width:90px;
-    transform:rotate(20deg);
-}
-
-@keyframes sway{
-    0%{
-        transform:rotate(0deg);
-    }
-    50%{
-        transform:rotate(3deg);
-    }
-    100%{
-        transform:rotate(0deg);
-    }
-}
-
-/* Landing */
-
-#landing{
+#intro{
 height:100vh;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
+flex-direction:column;
+position:relative;
+z-index:2;
 }
 
-#landing img{
-width:260px;
-max-width:80%;
+#photo{
+width:250px;
+height:250px;
 border-radius:20px;
+object-fit:cover;
 cursor:pointer;
 box-shadow:0 10px 30px rgba(0,0,0,.15);
-transition:.4s;
+transition:.3s;
 }
 
-#landing img:hover{
+#photo:hover{
 transform:scale(1.05);
 }
 
 .tap{
-margin-top:18px;
+margin-top:20px;
 font-size:20px;
-color:#b45c7a;
-animation:bounce 1.5s infinite;
-}
-
-@keyframes bounce{
-50%{
-transform:translateY(-6px);
-}
-}
-
-/* Music Bar */
-
-#musicBar{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:15px;
-background:#ffb8cf;
-color:white;
-font-weight:bold;
-text-align:center;
-z-index:999;
-box-shadow:0 4px 10px rgba(0,0,0,.15);
+color:#b94d77;
 }
 
 /* Loading */
@@ -155,238 +91,92 @@ display:none;
 height:100vh;
 justify-content:center;
 align-items:center;
-flex-direction:column;
-font-size:30px;
-color:#a14f71;
-}
-
-.loader{
-margin-top:20px;
-width:45px;
-height:45px;
-border-radius:50%;
-border:5px solid white;
-border-top:5px solid hotpink;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-100%{
-transform:rotate(360deg);
-}
+font-size:40px;
+font-family:'Caveat',cursive;
+color:#b94d77;
 }
 
 /* Letter */
 
-#letter{
+#letterPage{
 display:none;
-padding-top:90px;
-padding-bottom:60px;
+overflow-y:auto;
+height:100vh;
+padding-top:120px;
+padding-bottom:80px;
 }
 
 .paper{
-background:#fffdf9;
-width:min(700px,90%);
-margin:40px auto;
-padding:50px;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,.12);
-line-height:2;
-font-size:28px;
+width:90%;
+max-width:850px;
+margin:auto;
+background:#fffef9;
+padding:60px;
+border-radius:15px;
+box-shadow:0 10px 35px rgba(0,0,0,.15);
 font-family:'Caveat',cursive;
+font-size:32px;
+line-height:1.8;
 color:#444;
+white-space:pre-wrap;
 }
 
-.paper h1{
-text-align:center;
-margin-bottom:30px;
-font-size:50px;
+/* Music Player */
+
+.player{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:white;
+padding:15px;
+box-shadow:0 3px 15px rgba(0,0,0,.12);
+z-index:999;
+display:flex;
+align-items:center;
+gap:15px;
 }
 
-.paper p{
-margin-bottom:22px;
-}
-#musicBar{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    background:rgba(255,184,207,.95);
-    backdrop-filter:blur(10px);
-    color:white;
-    padding:12px 18px;
-    z-index:999;
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
+.song{
+font-size:14px;
+font-weight:500;
+color:#d14d7b;
+white-space:nowrap;
 }
 
-.songInfo{
-    text-align:center;
-    font-weight:bold;
-    margin-bottom:8px;
+button{
+border:none;
+background:#ff8cb4;
+color:white;
+padding:8px 15px;
+border-radius:20px;
+cursor:pointer;
 }
 
-.timelineContainer{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:10px;
-}
-
-.timelineContainer span{
-    width:40px;
-    font-size:13px;
-    text-align:center;
+button:hover{
+background:#ff6e9f;
 }
 
 #timeline{
-    width:180px;
-    cursor:pointer;
-    accent-color:white;
+flex:1;
 }
 
-.musicControls{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-}
-
-.musicControls button{
-    border:none;
-    background:white;
-    color:#d35b87;
-    border-radius:20px;
-    padding:8px 15px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.musicControls button:hover{
-    background:#ffe8f1;
-    transform:scale(1.05);
-}
-#musicBar{
-
-    width:94%;
-
-    padding:14px;
-
-}
-
-.musicHeader h2{
-
-    font-size:22px;
-
-}
-
-.musicHeader p{
-
-    font-size:12px;
-
-}
-
-.musicIcon{
-
-    font-size:28px;
-
-}
-
-#timeline{
-
-    width:90px;
-
-}
-
-.player button{
-
-    font-size:20px;
-
-}
 </style>
+
 </head>
 <body>
 
-<!-- Hearts -->
+<div class="hearts" id="hearts"></div>
 
-<script>
-for(let i=0;i<30;i++){
+<!-- Intro -->
 
-let heart=document.createElement("div");
+<div id="intro">
 
-heart.className="heart";
-
-heart.innerHTML="❤";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDelay=Math.random()*10+"s";
-
-heart.style.fontSize=(12+Math.random()*15)+"px";
-
-document.body.appendChild(heart);
-
-}
-</script>
-
-<!-- Tulips -->
-
-<div class="tulip t1">🌷</div>
-<div class="tulip t2">🌷</div>
-<div class="tulip t3">🌷</div>
-<div class="tulip t4">🌷</div>
-
-<!-- Music -->
-
-<audio id="music" loop>
-<source src="Strawberries & Cigarettes.mp3" type="audio/mpeg">
-</audio>
-
-<div id="musicBar">
-
-    <div class="musicHeader">
-
-        <div class="musicIcon">🎵</div>
-
-        <div>
-
-            <h2>Now Playing</h2>
-
-            <p>Strawberries and Cigarettes • Troye Sivan</p>
-
-        </div>
-
-    </div>
-
-    <div class="player">
-
-        <button id="playPauseBtn">⏸</button>
-
-        <span id="currentTime">0:00</span>
-
-        <input
-            type="range"
-            id="timeline"
-            value="0"
-            min="0"
-            max="100"
-        >
-
-        <span id="duration">0:00</span>
-
-        <button id="muteBtn">🔊</button>
-
-    </div>
-
-</div>
-<!-- Landing -->
-
-<div id="landing">
-
-<img src="your-image.jpg" id="start">
+<img src="your-image.png" id="photo">
 
 <div class="tap">
-don't be shy, tap me!
+Don't be shy, tap me! 💗
 </div>
 
 </div>
@@ -395,114 +185,153 @@ don't be shy, tap me!
 
 <div id="loading">
 
-<div>
 Loading Vie's message...
+
 </div>
 
-<div class="loader"></div>
+<!-- Music Player -->
+
+<div class="player" id="player">
+
+<div class="song">
+🎵 Now Playing: Strawberries and Cigarettes by Troye Sivan
+</div>
+
+<button id="playPause">Pause</button>
+
+<button id="muteBtn">Mute</button>
+
+<input type="range" id="timeline" value="0">
 
 </div>
 
 <!-- Letter -->
 
-<div id="letter">
+<div id="letterPage">
 
 <div class="paper">
 
-<h1>Hi, Vie 🤍</h1>
+Dear Vie,
 
-<p>
-This is where your message goes.
-</p>
+Lorem ipsum dolor sit amet...
 
-<p>
-Replace this text with your own letter.
-Write as much as you like because the page scrolls naturally.
-</p>
+Replace this with your actual letter.
 
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel magna vitae justo luctus pulvinar. Nulla facilisi. Duis volutpat libero ut dui tristique, sed placerat lacus ultricies.
-</p>
+You can make this as long as you'd like.
 
-<p>
-You can continue writing forever...
-</p>
+Since the page is scrollable,
+the music player will stay fixed at the top.
 
-<p>
 Love,
-</p>
-
-<p>
 ❤️
-</p>
 
 </div>
 
 </div>
+
+<audio id="music" src="Strawberries and Cigarettes.mp3"></audio>
 
 <script>
 
-document.getElementById("start").onclick=function(){
+// Hearts
 
-document.getElementById("music").play();
+const hearts=document.getElementById("hearts");
 
-document.getElementById("musicBar").style.display="block";
+for(let i=0;i<25;i++){
 
-document.getElementById("landing").style.display="none";
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
 
-document.getElementById("loading").style.display="flex";
+h.style.left=Math.random()*100+"%";
+h.style.fontSize=(12+Math.random()*18)+"px";
+h.style.animationDuration=(8+Math.random()*10)+"s";
+h.style.animationDelay=Math.random()*8+"s";
 
-setTimeout(function(){
+hearts.appendChild(h);
 
-document.getElementById("loading").style.display="none";
+}
 
-document.getElementById("letter").style.display="block";
+// Tap
 
-window.scrollTo(0,0);
+const photo=document.getElementById("photo");
+const intro=document.getElementById("intro");
+const loading=document.getElementById("loading");
+const letter=document.getElementById("letterPage");
+
+const music=document.getElementById("music");
+const player=document.getElementById("player");
+
+photo.onclick=()=>{
+
+music.play();
+
+player.style.display="flex";
+
+intro.style.display="none";
+loading.style.display="flex";
+
+setTimeout(()=>{
+
+loading.style.display="none";
+letter.style.display="block";
+
+document.body.style.overflow="hidden";
 
 },2500);
 
 }
-const timeline = document.getElementById("timeline");
-const currentTimeText = document.getElementById("currentTime");
-const durationText = document.getElementById("duration");
 
-// Format seconds into M:SS
-function formatTime(seconds){
+// Controls
 
-    const minutes = Math.floor(seconds / 60);
+const playPause=document.getElementById("playPause");
 
-    const secs = Math.floor(seconds % 60);
+playPause.onclick=()=>{
 
-    return minutes + ":" + (secs < 10 ? "0" : "") + secs;
+if(music.paused){
+
+music.play();
+playPause.innerText="Pause";
+
+}else{
+
+music.pause();
+playPause.innerText="Play";
 
 }
 
-// Once music loads
-music.addEventListener("loadedmetadata", ()=>{
+}
 
-    timeline.max = Math.floor(music.duration);
+const mute=document.getElementById("muteBtn");
 
-    durationText.textContent = formatTime(music.duration);
+mute.onclick=()=>{
+
+music.muted=!music.muted;
+
+mute.innerText=music.muted?"Unmute":"Mute";
+
+}
+
+const timeline=document.getElementById("timeline");
+
+music.addEventListener("loadedmetadata",()=>{
+
+timeline.max=music.duration;
+
+});
+
+music.addEventListener("timeupdate",()=>{
+
+timeline.value=music.currentTime;
 
 });
 
-// Update timeline while playing
-music.addEventListener("timeupdate", ()=>{
+timeline.addEventListener("input",()=>{
 
-    timeline.value = music.currentTime;
-
-    currentTimeText.textContent = formatTime(music.currentTime);
+music.currentTime=timeline.value;
 
 });
 
-// User drags the timeline
-timeline.addEventListener("input", ()=>{
-
-    music.currentTime = timeline.value;
-
-});
-    
 </script>
 
 </body>
