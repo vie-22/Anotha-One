@@ -19,8 +19,7 @@ box-sizing:border-box;
 body{
 font-family:'Poppins',sans-serif;
 background:#ffd9e8;
-overflow-x:hidden;
-overflow-y:auto;
+overflow:hidden;
 }
    
 /* Floating Hearts */
@@ -126,10 +125,21 @@ color:#b94d77;
 
 #letterPage{
 display:none;
-min-height:100vh;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100vh;
+
+overflow-y:auto;
 
 padding-top:140px;
 padding-bottom:80px;
+
+z-index:5;
 }
 
 .paper{
@@ -167,7 +177,6 @@ opacity 1s ease;
 =========================== */
 
 .player{
-
 display:none;
 flex-direction:column;
 
@@ -190,10 +199,9 @@ border-radius:25px;
 
 box-shadow:0 10px 30px rgba(255,125,170,.18);
 
-z-index:999999;
+z-index:9999999;
 
 transition:top .7s ease;
-
 }
 
 .player-content{
@@ -302,7 +310,7 @@ width:95%;
 padding:12px 15px;
 border-radius:20px;
 }
-
+   
 .player-content{
 gap:10px;
 }
