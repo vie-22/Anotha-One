@@ -796,34 +796,18 @@ muteBtn.addEventListener("click", () => {
 
 });
 
-const surpriseBtn = document.getElementById("surpriseBtn");
-const proposalLoading = document.getElementById("proposalLoading");
-const proposalLoadingText = document.getElementById("proposalLoadingText");
+// =====================================
+// Surprise Image Click
+// =====================================
 
-let loadingDots = 0;
+const surpriseImg = document.getElementById("surpriseImg");
 
-surpriseBtn.onclick = () => {
-
-    proposalLoading.style.display = "flex";
-
-    const dotInterval = setInterval(() => {
-
-        loadingDots = (loadingDots + 1) % 4;
-
-        proposalLoadingText.textContent =
-            "Loading" + ".".repeat(loadingDots);
-
-    }, 450);
-
-    setTimeout(() => {
-
-        clearInterval(dotInterval);
-
+if (surpriseImg) {
+    surpriseImg.addEventListener("click", () => {
         window.location.href = "proposal.html";
+    });
+}
 
-    }, 2500);
-
-};
    
 </script>
 
