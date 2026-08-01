@@ -19,9 +19,10 @@ box-sizing:border-box;
 body{
 font-family:'Poppins',sans-serif;
 background:#ffd9e8;
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 }
-
+   
 /* Floating Hearts */
 
 .hearts{
@@ -125,8 +126,7 @@ color:#b94d77;
 
 #letterPage{
 display:none;
-height:100vh;
-overflow-y:auto;
+min-height:100vh;
 
 padding-top:140px;
 padding-bottom:80px;
@@ -167,14 +167,15 @@ opacity 1s ease;
 =========================== */
 
 .player{
+
 display:none;
 flex-direction:column;
 
 position:fixed;
-top:-120px;
 
-transition:top .7s ease;
+top:-120px;
 left:50%;
+
 transform:translateX(-50%);
 
 width:92%;
@@ -184,11 +185,15 @@ background:rgba(255,255,255,.95);
 backdrop-filter:blur(15px);
 
 padding:15px 20px;
+
 border-radius:25px;
 
 box-shadow:0 10px 30px rgba(255,125,170,.18);
 
-z-index:99999;
+z-index:999999;
+
+transition:top .7s ease;
+
 }
 
 .player-content{
@@ -556,11 +561,11 @@ photo.onclick = () => {
         // Show the music player
         player.style.display = "flex";
 
-        setTimeout(() => {
-            player.style.top = "20px";
-        }, 50);
+setTimeout(() => {
 
-    }, 2500);
+    player.style.top = "20px";
+
+}, 50);
 
 };
 
