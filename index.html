@@ -363,23 +363,30 @@ cursor:pointer;
 }
 
    .surprise-section{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
     text-align:center;
-    margin-top:50px;
+    margin-top:60px;
 }
 
 .surprise-img{
+    display:block;
     width:220px;
     max-width:80%;
     height:auto;
+    margin:0 auto;
 }
 
 .surprise-text{
-    margin-top:10px;
-    font-family:'Poppins', sans-serif;
-    font-size:18px;
+    margin-top:12px;
+    font-family:'Caveat', cursive;
+    font-size:32px;
     color:#b84d73;
+    text-align:center;
 }
-   
 /* ===========================
    Mobile Responsive
 =========================== */
@@ -501,12 +508,12 @@ text-align:center;
     padding:28px 20px;
 }
 
-   .surprise img{
+   .surprise-img{
     width:170px;
 }
 
-.surprise p{
-    font-size:28px;
+.surprise-text{
+    font-size:24px;
 }
 
 /* Letter text */
@@ -589,18 +596,19 @@ You've brought a different taste to my life. I wasn't quite sure what to think o
 
             <div style="height:350px;"></div>
 
-            <p>
-               Yours,<br>
+<p>
+Yours,<br>
 <b>Vie</b>
+</p>
 
-<br><br><br>
-
-<div class="surprise">
-    <img src="surprise.png" alt="Surprise">
-    <p>Surprise?</p>
+<div class="surprise-section">
+    <img src="surprise.png" class="surprise-img" alt="Surprise">
+    <p class="surprise-text">Surprise?</p>
 </div>
 
-</div>
+</div> 
+</div> 
+</div> 
 <audio id="music" src="Strawberries & Cigarettes.mp3" loop></audio>
 
 <script>
