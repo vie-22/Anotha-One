@@ -41,20 +41,15 @@ animation:float linear infinite;
 opacity:.45;
 }
 
-@keyframes floatCat{
-
-    0%{
-        translate:0 0;
-    }
-
-    50%{
-        translate:0 -6px;
-    }
-
-    100%{
-        translate:0 0;
-    }
-
+@keyframes float{
+0%{
+transform:translateY(0) scale(1);
+opacity:.4;
+}
+100%{
+transform:translateY(-120vh) translateX(40px) scale(1.5);
+opacity:0;
+}
 }
 
 /* Intro */
@@ -486,8 +481,6 @@ Loading Vie's message
 <div id="letterPage">
 
 <div class="paper">
-
-Dear Vie,
 
 Lorem ipsum dolor sit amet...
 
