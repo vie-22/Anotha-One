@@ -165,7 +165,7 @@ z-index:5;
     padding:60px;
 
     border-radius:15px;
-    overflow:hidden;
+    overflow:visible;
 
     isolation:isolate;
 
@@ -802,39 +802,15 @@ muteBtn.addEventListener("click", () => {
 
 });
 
+const surpriseBtn = document.getElementById("surpriseBtn");
 const proposalLoading = document.getElementById("proposalLoading");
 const proposalLoadingText = document.getElementById("proposalLoadingText");
 
 let loadingDots = 0;
 
-surpriseBtn.onclick = () => {
+const surpriseBtn = document.getElementById("surpriseBtn");
 
-    proposalLoading.style.display = "flex";
-
-    const dotInterval = setInterval(() => {
-
-        loadingDots = (loadingDots + 1) % 4;
-
-        proposalLoadingText.textContent =
-            "Loading" + ".".repeat(loadingDots);
-
-    }, 450);
-
-    setTimeout(() => {
-
-        clearInterval(dotInterval);
-
-        window.location.href = "proposal.html";
-
-    }, 2500);
-
-};
-
-// Surprise button
-document.getElementById("surpriseBtn").addEventListener("click", function () {
-
-    const proposalLoading = document.getElementById("proposalLoading");
-    const proposalLoadingText = document.getElementById("proposalLoadingText");
+surpriseBtn.addEventListener("click", () => {
 
     proposalLoading.style.display = "flex";
 
@@ -842,7 +818,8 @@ document.getElementById("surpriseBtn").addEventListener("click", function () {
 
     const interval = setInterval(() => {
         dots = (dots + 1) % 4;
-        proposalLoadingText.textContent = "Loading" + ".".repeat(dots);
+        proposalLoadingText.textContent =
+            "Loading" + ".".repeat(dots);
     }, 450);
 
     setTimeout(() => {
