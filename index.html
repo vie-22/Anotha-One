@@ -387,6 +387,41 @@ cursor:pointer;
     color:#b84d73;
     text-align:center;
 }
+
+#proposalLoading{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:#ffd9e8;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+}
+
+#proposalLoading{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:#ffd9e8;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+}
+
+#proposalLoadingText{
+    font-family:'Caveat', cursive;
+    font-size:42px;
+    color:#b84d73;
+}
+   
 /* ===========================
    Mobile Responsive
 =========================== */
@@ -602,7 +637,7 @@ Yours,<br>
 </p>
 
 <div class="surprise-section">
-    <img src="surprise.png" class="surprise-img" alt="Surprise">
+    <img src="surprise.png" class="surprise-img" id="surpriseBtn">
     <p class="surprise-text">Surprise?</p>
 </div>
 
@@ -761,7 +796,44 @@ muteBtn.addEventListener("click", () => {
 
 });
 
+const surpriseBtn = document.getElementById("surpriseBtn");
+const proposalLoading = document.getElementById("proposalLoading");
+const proposalLoadingText = document.getElementById("proposalLoadingText");
+
+let loadingDots = 0;
+
+surpriseBtn.onclick = () => {
+
+    proposalLoading.style.display = "flex";
+
+    const dotInterval = setInterval(() => {
+
+        loadingDots = (loadingDots + 1) % 4;
+
+        proposalLoadingText.textContent =
+            "Loading" + ".".repeat(loadingDots);
+
+    }, 450);
+
+    setTimeout(() => {
+
+        clearInterval(dotInterval);
+
+        window.location.href = "proposal.html";
+
+    }, 2500);
+
+};
+   
 </script>
+
+   <div id="proposalLoading">
+
+    <div id="proposalLoadingText">
+        Loading
+    </div>
+
+</div>
 
 </body>
 </html>
