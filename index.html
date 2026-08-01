@@ -194,29 +194,30 @@ opacity 1s ease;
 }
 
 .paper::before{
-content:"";
+    content:"";
+    position:absolute;
+    inset:0;
 
-position:absolute;
-inset:0;
+    background:rgba(255,254,249,.65);
 
-background:rgba(255,254,249,.65);
+    background-image:
+    linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 38px,
+        rgba(243,214,223,.8) 39px
+    );
 
-backdrop-filter:blur(6px);
--webkit-backdrop-filter:blur(6px);
+    background-size:100% 40px;
 
-background-image:
-linear-gradient(
-to bottom,
-transparent 0px,
-transparent 38px,
-rgba(243,214,223,.8) 39px
-);
+    border-radius:inherit;
 
-background-size:100% 40px;
+    z-index:0;
+}
 
-border-radius:inherit;
-
-z-index:-1;
+   .paper > *{
+    position:relative;
+    z-index:1;
 }
    
 /* ===========================
