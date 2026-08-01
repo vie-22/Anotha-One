@@ -100,9 +100,10 @@ color:#b94d77;
 
 #letterPage{
 display:none;
-overflow-y:auto;
 height:100vh;
-padding-top:120px;
+overflow-y:auto;
+
+padding-top:140px;
 padding-bottom:80px;
 }
 
@@ -127,23 +128,25 @@ white-space:pre-wrap;
 
 .player{
 display:none;
+flex-direction:column;
+
 position:fixed;
-top:18px;
+top:20px;
 left:50%;
 transform:translateX(-50%);
+
 width:92%;
 max-width:700px;
 
-background:rgba(255,255,255,.92);
-backdrop-filter:blur(14px);
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(15px);
 
 padding:15px 20px;
 border-radius:25px;
 
-box-shadow:
-0 10px 30px rgba(255,125,170,.18);
+box-shadow:0 10px 30px rgba(255,125,170,.18);
 
-z-index:999;
+z-index:99999;
 }
 
 .player-content{
@@ -222,7 +225,6 @@ display:flex;
 justify-content:space-between;
 font-size:12px;
 color:#bb7994;
-}
 }
 
 </style>
@@ -365,7 +367,8 @@ photo.onclick = () => {
         letter.style.display = "block";
 
         // Show the player only after the letter appears
-        player.style.display = "block";
+       player.style.display = "flex";
+player.style.flexDirection = "column";
 
     }, 2500);
 
