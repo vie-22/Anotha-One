@@ -65,22 +65,21 @@ z-index:2;
 }
 
 #photo{
-    width:250px;
-    height:250px;
+    width:auto;
+    height:auto;
+    max-width:250px;
+    max-height:250px;
 
     object-fit:contain;
 
-    background:transparent;
-    border:none;
-    border-radius:0;
-    box-shadow:none;
+    background:none !important;
+    border:none !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    outline:none !important;
 
-    cursor:pointer;
-
-    animation:heartbeat 2s infinite;
-    transition:.3s;
+    display:block;
 }
-
 @keyframes heartbeat{
 
 0%{
