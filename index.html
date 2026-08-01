@@ -642,8 +642,7 @@ Yours,<br>
 </div>
 
 </div> 
-</div> 
-</div> 
+       
 <audio id="music" src="Strawberries & Cigarettes.mp3" loop></audio>
 
 <script>
@@ -800,15 +799,12 @@ muteBtn.addEventListener("click", () => {
 // Surprise Image Click
 // =====================================
 
-const surpriseImg = document.getElementById("surpriseImg");
+const surpriseImg = document.getElementById("surpriseBtn");
 
-if (surpriseImg) {
-    surpriseImg.addEventListener("click", () => {
-        window.location.href = "proposal.html";
-    });
-}
+surpriseImg.addEventListener("click", () => {
+    window.location.href = "proposal.html";
+});
 
-   
 </script>
 
    <div id="proposalLoading">
