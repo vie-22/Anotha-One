@@ -177,34 +177,34 @@ opacity 1s ease;
 =========================== */
 
 .player{
+
 display:none;
 flex-direction:column;
 
 position:fixed;
 
-top:-140px;       /* Starts above the screen */
+top:-120px;
 left:0;
 right:0;
 
-margin:auto;
-
 width:100%;
-max-width:100%;
 
-background:rgba(255,255,255,.95);
-backdrop-filter:blur(15px);
+background:rgba(255,255,255,.97);
+backdrop-filter:blur(18px);
 
-padding:15px 20px;
+padding:15px 22px 18px;
 
-border-radius:0 0 25px 25px;   /* Rounded only at the bottom */
+border-radius:0 0 22px 22px;
 
-box-shadow:0 8px 25px rgba(255,125,170,.18);
+box-shadow:
+0 6px 18px rgba(255,130,175,.15);
 
 z-index:999999;
 
-transition:top .7s ease;
-}
+transition:top .75s cubic-bezier(.25,.8,.25,1);
 
+}
+   
 .player-content{
 display:flex;
 align-items:center;
