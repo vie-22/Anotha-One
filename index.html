@@ -121,45 +121,108 @@ color:#444;
 white-space:pre-wrap;
 }
 
-/* Music Player */
+/* ===========================
+   Music Player
+=========================== */
 
 .player{
 display:none;
 position:fixed;
-top:0;
-left:0;
-width:100%;
-background:white;
-padding:15px;
-box-shadow:0 3px 15px rgba(0,0,0,.12);
+top:18px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:700px;
+
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(14px);
+
+padding:15px 20px;
+border-radius:25px;
+
+box-shadow:
+0 10px 30px rgba(255,125,170,.18);
+
 z-index:999;
+}
+
+.player-content{
 display:flex;
 align-items:center;
-gap:15px;
+gap:18px;
 }
 
-.song{
-font-size:14px;
-font-weight:500;
-color:#d14d7b;
-white-space:nowrap;
+.song-info{
+flex:1;
 }
 
-button{
+.now-playing{
+font-size:12px;
+color:#d07a98;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.song-title{
+font-size:16px;
+font-weight:600;
+color:#b84d73;
+margin-top:2px;
+}
+
+.controls{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.control-btn{
+width:42px;
+height:42px;
 border:none;
-background:#ff8cb4;
+border-radius:50%;
+background:#ff8fb7;
 color:white;
-padding:8px 15px;
-border-radius:20px;
+font-size:16px;
 cursor:pointer;
+transition:.25s;
 }
 
-button:hover{
-background:#ff6e9f;
+.control-btn:hover{
+transform:scale(1.08);
+background:#ff6fa4;
+}
+
+.progress{
+width:100%;
+margin-top:12px;
 }
 
 #timeline{
-flex:1;
+width:100%;
+appearance:none;
+height:6px;
+border-radius:10px;
+background:#f7bfd3;
+outline:none;
+cursor:pointer;
+}
+
+#timeline::-webkit-slider-thumb{
+appearance:none;
+width:14px;
+height:14px;
+border-radius:50%;
+background:#ff6fa4;
+}
+
+.time{
+margin-top:6px;
+display:flex;
+justify-content:space-between;
+font-size:12px;
+color:#bb7994;
+}
 }
 
 </style>
