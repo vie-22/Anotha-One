@@ -248,9 +248,12 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 .controls{
+position:absolute;
+right:20px;
+
 display:flex;
 align-items:center;
-gap:10px;
+gap:8px;
 }
 
 .control-btn{
@@ -452,28 +455,42 @@ Loading Vie's message
 
 <!-- Music Player -->
 
+<!-- Music Player -->
+
+<!-- Music Player -->
+
 <div class="player" id="player">
 
     <div class="player-content">
 
-        <div class="song-title">
-    🍓 Strawberries & Cigarettes
-    <span class="artist">Troye Sivan</span>
-</div>
+        <div class="song-info">
+
+            <div class="song-title">
+                🍓 Strawberries & Cigarettes
+            </div>
+
+            <div class="artist">
+                Troye Sivan
+            </div>
+
+        </div>
+
 
         <div class="controls">
-
-            <button class="control-btn" id="playPause">
-                ⏸
-            </button>
 
             <button class="control-btn" id="muteBtn">
                 🔊
             </button>
 
+            <button class="control-btn" id="playPause">
+                ⏸
+            </button>
+
         </div>
 
+
     </div>
+
 
     <div class="progress">
 
@@ -486,22 +503,21 @@ Loading Vie's message
 
     </div>
 
-</div>
 
+</div>
 <!-- Letter -->
 
 <div id="letterPage">
 
 <div class="paper">
 
-Lorem ipsum dolor sit amet...
-Replace this with your actual letter.
-You can make this as long as you'd like.
-Since the page is scrollable,
-the music player will stay fixed at the top.
+To: My Febylat :P
 
-Love,
-❤️
+
+
+
+Yours,
+<b>Vie</b>
 
 </div>
 
