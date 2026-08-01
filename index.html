@@ -439,15 +439,10 @@ Loading Vie's message
 
     <div class="player-content">
 
-        <div class="song-info">
-            <div class="now-playing">
-                Now Playing
-            </div>
-
-            <div class="song-title">
-                🍓 Strawberries and Cigarettes — Troye Sivan
-            </div>
-        </div>
+        <div class="song-title">
+    🍓 Strawberries & Cigarettes
+    <span class="artist">Troye Sivan</span>
+</div>
 
         <div class="controls">
 
@@ -862,14 +857,25 @@ text-transform:uppercase;
 }
 
 .song-title{
-font-size:16px;
+font-size:14px;
 font-weight:600;
 color:#b84d73;
-margin-top:2px;
 
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
+text-align:center;
+line-height:1.25;
+
+white-space:normal;
+}
+
+.artist{
+display:block;
+
+font-size:12px;
+font-weight:400;
+
+color:#d07a98;
+
+margin-top:2px;
 }
 .controls{
 display:flex;
