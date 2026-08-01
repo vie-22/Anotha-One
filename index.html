@@ -378,6 +378,12 @@ cursor:pointer;
     max-width:80%;
     height:auto;
     margin:0 auto;
+
+    cursor:pointer;
+    pointer-events:auto;
+
+    position:relative;
+    z-index:99999;
 }
 
 .surprise-text{
@@ -493,7 +499,7 @@ text-align:center;
     max-width:95%;
     padding:10px;
     border-radius:20px;
-    overflow:hidden;
+    overflow:visible;
 }
 
 .song-title{
@@ -796,7 +802,6 @@ muteBtn.addEventListener("click", () => {
 
 });
 
-const surpriseBtn = document.getElementById("surpriseBtn");
 const proposalLoading = document.getElementById("proposalLoading");
 const proposalLoadingText = document.getElementById("proposalLoadingText");
 
@@ -824,6 +829,28 @@ surpriseBtn.onclick = () => {
     }, 2500);
 
 };
+
+// Surprise button
+document.getElementById("surpriseBtn").addEventListener("click", function () {
+
+    const proposalLoading = document.getElementById("proposalLoading");
+    const proposalLoadingText = document.getElementById("proposalLoadingText");
+
+    proposalLoading.style.display = "flex";
+
+    let dots = 0;
+
+    const interval = setInterval(() => {
+        dots = (dots + 1) % 4;
+        proposalLoadingText.textContent = "Loading" + ".".repeat(dots);
+    }, 450);
+
+    setTimeout(() => {
+        clearInterval(interval);
+        window.location.href = "proposal.html";
+    }, 2500);
+
+});
    
 </script>
 
