@@ -182,24 +182,25 @@ flex-direction:column;
 
 position:fixed;
 
-top:-120px;
-left:50%;
+top:-140px;       /* Starts above the screen */
+left:0;
+right:0;
 
-transform:translateX(-50%);
+margin:auto;
 
-width:92%;
-max-width:700px;
+width:100%;
+max-width:100%;
 
 background:rgba(255,255,255,.95);
 backdrop-filter:blur(15px);
 
 padding:15px 20px;
 
-border-radius:25px;
+border-radius:0 0 25px 25px;   /* Rounded only at the bottom */
 
-box-shadow:0 10px 30px rgba(255,125,170,.18);
+box-shadow:0 8px 25px rgba(255,125,170,.18);
 
-z-index:9999999;
+z-index:999999;
 
 transition:top .7s ease;
 }
@@ -571,9 +572,8 @@ photo.onclick = () => {
         player.style.display = "flex";
 
         setTimeout(() => {
-            player.style.top = "20px";
-        }, 50);
-
+    player.style.top = "0";
+}, 50);
     }, 2500);
 
 };
