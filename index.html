@@ -266,7 +266,43 @@ margin-bottom:22px;
     background:#ffe8f1;
     transform:scale(1.05);
 }
-    
+#musicBar{
+
+    width:94%;
+
+    padding:14px;
+
+}
+
+.musicHeader h2{
+
+    font-size:22px;
+
+}
+
+.musicHeader p{
+
+    font-size:12px;
+
+}
+
+.musicIcon{
+
+    font-size:28px;
+
+}
+
+#timeline{
+
+    width:90px;
+
+}
+
+.player button{
+
+    font-size:20px;
+
+}
 </style>
 </head>
 <body>
@@ -308,11 +344,24 @@ document.body.appendChild(heart);
 
 <div id="musicBar">
 
-    <div class="songInfo">
-        🎵 Now Playing: Strawberries and Cigarettes — Troye Sivan
+    <div class="musicHeader">
+
+        <div class="musicIcon">🎵</div>
+
+        <div>
+
+            <h2>Now Playing</h2>
+
+            <p>Strawberries and Cigarettes • Troye Sivan</p>
+
+        </div>
+
     </div>
 
-    <div class="timelineContainer">
+    <div class="player">
+
+        <button id="playPauseBtn">⏸</button>
+
         <span id="currentTime">0:00</span>
 
         <input
@@ -324,11 +373,9 @@ document.body.appendChild(heart);
         >
 
         <span id="duration">0:00</span>
-    </div>
 
-    <div class="musicControls">
-        <button id="playPauseBtn">⏸ Pause</button>
-        <button id="muteBtn">🔊 Mute</button>
+        <button id="muteBtn">🔊</button>
+
     </div>
 
 </div>
