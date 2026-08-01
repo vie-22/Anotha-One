@@ -651,6 +651,14 @@ Yours,<br>
 </div> <!-- paper -->
 </div> <!-- letterPage -->
 
+<div id="proposalLoading">
+
+    <div id="proposalLoadingText">
+        Loading
+    </div>
+
+</div>
+   
 <audio id="music" src="Strawberries & Cigarettes.mp3" loop></audio>
 <script>
 
@@ -807,8 +815,6 @@ const proposalLoading = document.getElementById("proposalLoading");
 const proposalLoadingText = document.getElementById("proposalLoadingText");
 
 let loadingDots = 0;
-
-const surpriseBtn = document.getElementById("surpriseBtn");
 
 surpriseBtn.addEventListener("click", () => {
 
