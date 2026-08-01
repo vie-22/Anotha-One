@@ -191,8 +191,8 @@ opacity 1s ease;
    Music Player
 =========================== */
 
-.player{
 display:none;
+flex-direction:column;
 
 position:fixed;
 top:-180px;
@@ -267,28 +267,34 @@ background:#ff6fa4;
 }
 
 #timeline{
-flex:1;
+    -webkit-appearance:none;
+    appearance:none;
 
-appearance:none;
+    flex:1;
+    min-width:0;
 
-height:6px;
+    width:100%;
 
-border-radius:999px;
+    height:6px;
 
-background:#d9bfd0;
+    background:#d9bfd0;
+    border-radius:999px;
 
-outline:none;
+    outline:none;
+    border:none;
+}
+   
+#timeline::-webkit-slider-runnable-track{
+    height:6px;
+    background:#d9bfd0;
+    border-radius:999px;
 }
 
-#timeline::-webkit-slider-thumb{
-appearance:none;
-
-width:14px;
-height:14px;
-
-border-radius:50%;
-
-background:#ff6fa4;
+#timeline::-moz-range-track{
+    height:6px;
+    background:#d9bfd0;
+    border-radius:999px;
+    border:none;
 }
 
 #currentTime,
