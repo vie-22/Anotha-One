@@ -65,20 +65,20 @@ z-index:2;
 }
 
 #photo{
-width:250px;
-height:250px;
-border-radius:20px;
-object-fit:cover;
-cursor:pointer;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
+    width:250px;
+    height:250px;
 
-animation:heartbeat 2s infinite;
-transition:.3s;
-}
+    object-fit:contain;
 
-#photo:hover{
-animation-play-state:paused;
-transform:scale(1.06);
+    background:transparent;
+    border:none;
+    border-radius:0;
+    box-shadow:none;
+
+    cursor:pointer;
+
+    animation:heartbeat 2s infinite;
+    transition:.3s;
 }
 
 @keyframes heartbeat{
