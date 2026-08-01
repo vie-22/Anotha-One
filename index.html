@@ -61,7 +61,7 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 position:relative;
-z-index:2;
+z-index:100;
 }
 
 #photo{
@@ -70,10 +70,16 @@ z-index:2;
 
     object-fit:contain;
     background:transparent;
+
     border:none;
     box-shadow:none;
 
     cursor:pointer;
+
+    pointer-events:auto;
+
+    position:relative;
+    z-index:101;
 
     animation:heartbeat 1.6s ease-in-out infinite;
 
@@ -415,7 +421,7 @@ font-size:14px;
 
 <div id="intro">
 
-<img src="car.png" id="photo">
+<img src="car.png" id="photo" onclick="openLetter()">
 
 <div class="tap">
 Don't be shy, tap me! 💗
@@ -538,34 +544,49 @@ loadingText.textContent=
 
 },450);
    
-photo.onclick = () => {
+function openLetter(){
 
-  music.play().catch(err => {
-    console.log(err);
-});
+    const photo = document.getElementById("photo");
+    const intro = document.getElementById("intro");
+    const loading = document.getElementById("loading");
+    const letter = document.getElementById("letterPage");
+    const player = document.getElementById("player");
+    const music = document.getElementById("music");
 
-    intro.style.display = "none";
-    loading.style.display = "flex";
+    music.play().catch(error=>{
+        console.log("Music blocked:", error);
+    });
 
-    setTimeout(() => {
+    intro.style.display="none";
 
-        loading.style.display = "none";
-        letter.style.display = "block";
+    loading.style.display="flex";
 
-        // Unfold the paper
-        const paper = document.querySelector(".paper");
 
-        paper.style.opacity = "1";
-        paper.style.transform =
-            "perspective(1200px) rotateX(0deg) scale(1)";
+    setTimeout(()=>{
 
-        // Show the music player
-        player.style.display = "flex";
+        loading.style.display="none";
 
-        setTimeout(() => {
-    player.style.top = "0";
-}, 50);
-    }, 2500);
+        letter.style.display="block";
+
+
+        const paper=document.querySelector(".paper");
+
+        paper.style.opacity="1";
+
+        paper.style.transform=
+        "perspective(1200px) rotateX(0deg) scale(1)";
+
+
+        player.style.display="flex";
+
+        setTimeout(()=>{
+            player.style.top="0";
+        },50);
+
+
+    },2500);
+
+}
 
 };
 // ===========================
