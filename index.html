@@ -380,9 +380,6 @@ cursor:pointer;
     margin:0 auto;
 
     cursor:pointer;
-    pointer-events:auto;
-    position:relative;
-    z-index:9999;
 }
 
 .surprise-text{
@@ -563,108 +560,6 @@ text-align:center;
 }
 
 }
-
-#proposalPage{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:#ffd9e8;
-    z-index:100000;
-    overflow:hidden;
-}
-
-.proposal-container{
-    width:100%;
-    height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.proposal-paper{
-    position:relative;
-
-    width:90%;
-    max-width:700px;
-
-    padding:60px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.45);
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
-
-    animation:pop .8s ease;
-}
-
-.proposal-paper-bg{
-    position:absolute;
-    inset:0;
-
-    border-radius:inherit;
-}
-
-.proposal-content{
-    position:relative;
-
-    font-family:'Caveat',cursive;
-
-    font-size:48px;
-
-    text-align:center;
-
-    color:#b84d73;
-}
-
-.yesBtn{
-
-    margin-top:35px;
-
-    padding:15px 45px;
-
-    border:none;
-
-    border-radius:999px;
-
-    background:#ff8fb7;
-
-    color:white;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.yesBtn:hover{
-
-    transform:scale(1.08);
-
-}
-
-@keyframes pop{
-
-    from{
-
-        opacity:0;
-        transform:scale(.8);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:scale(1);
-
-    }
-
-}
    
 </style>
 
@@ -752,46 +647,6 @@ Yours,<br>
     </div>     <!-- paper -->
 </div>         <!-- letterPage -->
 
-<!-- PROPOSAL PAGE -->
-<div id="proposalPage" style="display:none;">
-
-    <div class="hearts" id="proposalHearts"></div>
-
-    <div class="proposal-container">
-
-        <div class="proposal-paper">
-
-            <div class="proposal-paper-bg"></div>
-
-            <div class="proposal-content">
-
-                May I please be your Girlfriend? ❤️
-
-                <br><br>
-
-                <button type="button" class="yesBtn">YES 💖</button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-   <!-- Paste it HERE -->
-<div id="proposalLoading">
-
-    <div id="proposalLoadingText">
-        Loading
-    </div>
-
-</div>
-
-<audio id="music" src="Strawberries & Cigarettes.mp3" loop></audio>
-
-<script>
-   
 <audio id="music" src="Strawberries & Cigarettes.mp3" loop></audio>
 
 <script>
@@ -811,28 +666,6 @@ for(let i = 0; i < 25; i++){
     h.style.animationDelay = Math.random()*8 + "s";
 
     hearts.appendChild(h);
-}
-
-   const proposalHearts = document.getElementById("proposalHearts");
-
-for(let i=0;i<25;i++){
-
-    let h=document.createElement("div");
-
-    h.className="heart";
-
-    h.innerHTML="❤";
-
-    h.style.left=Math.random()*100+"%";
-
-    h.style.fontSize=(10+Math.random()*12)+"px";
-
-    h.style.animationDuration=(12+Math.random()*8)+"s";
-
-    h.style.animationDelay=Math.random()*8+"s";
-
-    proposalHearts.appendChild(h);
-
 }
 
 // Floating PNGs
@@ -972,35 +805,19 @@ muteBtn.addEventListener("click", () => {
 
 const surpriseImg = document.getElementById("surpriseBtn");
 
-const proposalLoading = document.getElementById("proposalLoading");
-const proposalLoadingText = document.getElementById("proposalLoadingText");
+surpriseImg.addEventListener("click", () => {
+    window.location.href = "proposal.html";
+});
 
-let proposalDots = 0;
-
-setInterval(() => {
-
-    proposalDots = (proposalDots + 1) % 4;
-
-    proposalLoadingText.textContent =
-        "Loading" + ".".repeat(proposalDots);
-
-},450);
-
-surpriseImg.onclick = () => {
-
-    proposalLoading.style.display="flex";
-
-    setTimeout(()=>{
-
-        proposalLoading.style.display="none";
-
-        document.getElementById("letterPage").style.display="none";
-
-        document.getElementById("proposalPage").style.display="block";
-
-    },2500);
-
-};
 </script>
+
+   <div id="proposalLoading">
+
+    <div id="proposalLoadingText">
+        Loading
+    </div>
+
+</div>
+
 </body>
 </html>
