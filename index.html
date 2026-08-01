@@ -494,7 +494,7 @@ Love,
 
 </div>
 
-<audio id="music" src="Strawberries & Cigarettes.mp3"></audio>
+<audio id="music" src="Strawberries & Cigarettes.mp3" loop></audio>
 
 <script>
 
@@ -561,14 +561,13 @@ photo.onclick = () => {
         // Show the music player
         player.style.display = "flex";
 
-setTimeout(() => {
+        setTimeout(() => {
+            player.style.top = "20px";
+        }, 50);
 
-    player.style.top = "20px";
-
-}, 50);
+    }, 2500);
 
 };
-
 // ===========================
 // Music Player Controls
 // ===========================
