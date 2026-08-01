@@ -171,7 +171,9 @@ display:none;
 flex-direction:column;
 
 position:fixed;
-top:20px;
+top:-120px;
+
+transition:top .7s ease;
 left:50%;
 transform:translateX(-50%);
 
@@ -502,8 +504,8 @@ h.className="heart";
 h.innerHTML="❤";
 
 h.style.left=Math.random()*100+"%";
-h.style.fontSize=(12+Math.random()*18)+"px";
-h.style.animationDuration=(8+Math.random()*10)+"s";
+h.style.fontSize=(10+Math.random()*12)+"px";
+h.style.animationDuration=(12+Math.random()*8)+"s";
 h.style.animationDelay=Math.random()*8+"s";
 
 hearts.appendChild(h);
@@ -544,28 +546,22 @@ photo.onclick = () => {
         loading.style.display = "none";
         letter.style.display = "block";
 
+        // Unfold the paper
         const paper = document.querySelector(".paper");
 
-// Unfold the paper
-setTimeout(() => {
-
-    paper.style.opacity = "1";
-    paper.style.transform =
-        "perspective(1200px) rotateX(0deg) scale(1)";
-    paper.classList.add("show");
-
-}, 500);
+        paper.style.opacity = "1";
+        paper.style.transform =
+            "perspective(1200px) rotateX(0deg) scale(1)";
 
         // Show the music player
         player.style.display = "flex";
 
         setTimeout(() => {
             player.style.top = "20px";
-        }, 700);
+        }, 50);
 
     }, 2500);
 
-};
 };
 
 // ===========================
