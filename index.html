@@ -41,6 +41,21 @@ animation:float linear infinite;
 opacity:.45;
 }
 
+/* Floating PNGs */
+
+.floating-img{
+position:absolute;
+bottom:-80px;
+
+width:40px;      /* Change size here */
+height:auto;
+
+pointer-events:none;
+opacity:.65;
+
+animation:float linear infinite;
+}
+   
 @keyframes float{
 0%{
 transform:translateY(0) scale(1);
@@ -525,6 +540,7 @@ Loading Vie's message
 
 To: My Febylat :P
 
+   
 
 
 
@@ -540,22 +556,36 @@ Yours,
 <script>
 
 // Hearts
+const hearts = document.getElementById("hearts");
 
-const hearts=document.getElementById("hearts");
+for(let i = 0; i < 25; i++){
 
-for(let i=0;i<25;i++){
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤";
 
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤";
+    h.style.left = Math.random()*100 + "%";
+    h.style.fontSize = (10 + Math.random()*12) + "px";
+    h.style.animationDuration = (12 + Math.random()*8) + "s";
+    h.style.animationDelay = Math.random()*8 + "s";
 
-h.style.left=Math.random()*100+"%";
-h.style.fontSize=(10+Math.random()*12)+"px";
-h.style.animationDuration=(12+Math.random()*8)+"s";
-h.style.animationDelay=Math.random()*8+"s";
+    hearts.appendChild(h);
+}
 
-hearts.appendChild(h);
+// Floating PNGs
+for(let i = 0; i < 10; i++){
 
+    let img = document.createElement("img");
+    img.className = "floating-img";
+
+    img.src = "floating.png"; // change to your PNG name
+
+    img.style.left = Math.random()*100 + "%";
+    img.style.width = (25 + Math.random()*20) + "px";
+    img.style.animationDuration = (15 + Math.random()*8) + "s";
+    img.style.animationDelay = Math.random()*8 + "s";
+
+    hearts.appendChild(img);
 }
 
 // Tap
