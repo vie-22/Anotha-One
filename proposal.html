@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Feby ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#ffd9e8;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+/* Floating Hearts */
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+pointer-events:none;
+z-index:0;
+}
+
+.heart{
+position:absolute;
+bottom:-40px;
+color:#ff79a8;
+opacity:.45;
+animation:float linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0) scale(1);
+opacity:.45;
+}
+100%{
+transform:translateY(-120vh) translateX(40px) scale(1.6);
+opacity:0;
+}
+}
+
+/* Paper */
+
+.paper{
+
+position:relative;
+z-index:2;
+
+width:90%;
+max-width:760px;
+
+padding:60px;
+
+background:rgba(255,255,255,.45);
+
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+
+border-radius:18px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+text-align:center;
+
+opacity:0;
+
+transform:
+perspective(1200px)
+rotateX(-80deg)
+scale(.9);
+
+transform-origin:top;
+
+animation:unfold 1.2s forwards;
+
+}
+
+@keyframes unfold{
+
+to{
+
+opacity:1;
+
+transform:
+perspective(1200px)
+rotateX(0)
+scale(1);
+
+}
+
+}
+
+h1{
+
+font-family:'Caveat',cursive;
+
+font-size:62px;
+
+color:#b84d73;
+
+line-height:1.2;
+
+margin-bottom:45px;
+
+}
+
+/* Buttons */
+
+.buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+button{
+
+padding:14px 34px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:999px;
+
+cursor:pointer;
+
+transition:.25s;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+#yes{
+
+background:#ff8fb7;
+
+color:white;
+
+}
+
+#yes:hover{
+
+transform:scale(1.08);
+
+background:#ff6ea2;
+
+}
+
+#no{
+
+background:white;
+
+color:#b84d73;
+
+position:relative;
+
+}
+
+@media(max-width:500px){
+
+.paper{
+
+padding:35px 25px;
+
+}
+
+h1{
+
+font-size:42px;
+
+}
+
+button{
+
+font-size:16px;
+
+padding:12px 28px;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="paper">
+
+<h1>May I please<br>be your Girlfriend? 💗</h1>
+
+<div class="buttons">
+
+<button id="yes">Yes 💖</button>
+
+<button id="no">No 🙈</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* Hearts */
+
+const hearts=document.getElementById("hearts");
+
+for(let i=0;i<30;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.fontSize=(10+Math.random()*14)+"px";
+
+h.style.animationDuration=(10+Math.random()*8)+"s";
+
+h.style.animationDelay=Math.random()*8+"s";
+
+hearts.appendChild(h);
+
+}
+
+/* Yes */
+
+document.getElementById("yes").onclick=()=>{
+
+alert("YAYYYYYYY 💖");
+
+};
+
+/* No runs away */
+
+const no=document.getElementById("no");
+
+no.addEventListener("mouseover",()=>{
+
+const x=Math.random()*(window.innerWidth-150);
+
+const y=Math.random()*(window.innerHeight-80);
+
+no.style.position="fixed";
+
+no.style.left=x+"px";
+
+no.style.top=y+"px";
+
+});
+
+</script>
+
+</body>
+</html>
