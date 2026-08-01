@@ -258,24 +258,58 @@ alert("YAYYYYYYY 💖");
 
 };
 
-/* No button runs away */
+/* No button runs away multiple times */
 
 const no = document.getElementById("no");
 
+let escapeCount = 0;
+const maxEscapes = 50; // Change this number to make it run away more or less
+
 function moveNoButton() {
 
-    const padding = 20;
+    escapeCount++;
 
-    const maxX = window.innerWidth - no.offsetWidth - padding;
-    const maxY = window.innerHeight - no.offsetHeight - padding;
+    // For the first few times, jump to random places
+    if (escapeCount <= maxEscapes) {
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+        const padding = 20;
 
-    no.style.position = "fixed";
-    no.style.left = x + "px";
-    no.style.top = y + "px";
+        const maxX = window.innerWidth - no.offsetWidth - padding;
+        const maxY = window.innerHeight - no.offsetHeight - padding;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        no.style.position = "fixed";
+        no.style.left = x + "px";
+        no.style.top = y + "px";
+
+    } 
+    // After enough escapes, disappear
+    else {
+
+        no.style.transition = "0.4s";
+        no.style.transform = "scale(0)";
+        no.style.opacity = "0";
+        no.style.pointerEvents = "none";
+
+    }
 }
+
+// Desktop
+no.addEventListener("mouseenter", moveNoButton);
+
+// Mobile
+no.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    moveNoButton();
+});
+
+// If someone somehow clicks it
+no.addEventListener("click", function(e){
+    e.preventDefault();
+    moveNoButton();
+});
 
 // Desktop
 no.addEventListener("mouseenter", moveNoButton);
