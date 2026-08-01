@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Vie ❤️</title>
+<title>For Feby ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -256,15 +256,42 @@ Loading Vie's message...
 
 <div class="player" id="player">
 
-<div class="song">
-🎵 Now Playing: Strawberries and Cigarettes by Troye Sivan
-</div>
+    <div class="player-content">
 
-<button id="playPause">Pause</button>
+        <div class="song-info">
+            <div class="now-playing">
+                Now Playing
+            </div>
 
-<button id="muteBtn">Mute</button>
+            <div class="song-title">
+                🍓 Strawberries and Cigarettes — Troye Sivan
+            </div>
+        </div>
 
-<input type="range" id="timeline" value="0">
+        <div class="controls">
+
+            <button class="control-btn" id="playPause">
+                ⏸
+            </button>
+
+            <button class="control-btn" id="muteBtn">
+                🔊
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="progress">
+
+        <input type="range" id="timeline" value="0">
+
+        <div class="time">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+
+    </div>
 
 </div>
 
@@ -325,73 +352,85 @@ const letter=document.getElementById("letterPage");
 const music=document.getElementById("music");
 const player=document.getElementById("player");
 
-photo.onclick=()=>{
+photo.onclick = () => {
 
-music.play();
+    music.play();
 
-player.style.display="flex";
+    intro.style.display = "none";
+    loading.style.display = "flex";
 
-intro.style.display="none";
-loading.style.display="flex";
+    setTimeout(() => {
 
-setTimeout(()=>{
+        loading.style.display = "none";
+        letter.style.display = "block";
 
-loading.style.display="none";
-letter.style.display="block";
+        // Show the player only after the letter appears
+        player.style.display = "block";
 
-document.body.style.overflow="hidden";
+    }, 2500);
 
-},2500);
+};
 
+// ===========================
+// Music Player Controls
+// ===========================
+
+const playPause = document.getElementById("playPause");
+const muteBtn = document.getElementById("muteBtn");
+const timeline = document.getElementById("timeline");
+const currentTimeText = document.getElementById("currentTime");
+const durationText = document.getElementById("duration");
+
+// Convert seconds to MM:SS
+function formatTime(seconds) {
+    if (isNaN(seconds)) return "0:00";
+
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+
+    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
-// Controls
+// Wait until the audio loads
+music.addEventListener("loadedmetadata", () => {
+    timeline.max = Math.floor(music.duration);
+    durationText.textContent = formatTime(music.duration);
+});
 
-const playPause=document.getElementById("playPause");
+// Update the timeline while playing
+music.addEventListener("timeupdate", () => {
+    timeline.value = Math.floor(music.currentTime);
+    currentTimeText.textContent = formatTime(music.currentTime);
+});
 
-playPause.onclick=()=>{
+// Seek
+timeline.addEventListener("input", () => {
+    music.currentTime = timeline.value;
+});
 
-if(music.paused){
+// Play / Pause
+playPause.addEventListener("click", () => {
 
-music.play();
-playPause.innerText="Pause";
-
-}else{
-
-music.pause();
-playPause.innerText="Play";
-
-}
-
-}
-
-const mute=document.getElementById("muteBtn");
-
-mute.onclick=()=>{
-
-music.muted=!music.muted;
-
-mute.innerText=music.muted?"Unmute":"Mute";
-
-}
-
-const timeline=document.getElementById("timeline");
-
-music.addEventListener("loadedmetadata",()=>{
-
-timeline.max=music.duration;
+    if (music.paused) {
+        music.play();
+        playPause.innerHTML = "⏸";
+    } else {
+        music.pause();
+        playPause.innerHTML = "▶";
+    }
 
 });
 
-music.addEventListener("timeupdate",()=>{
+// Mute
+muteBtn.addEventListener("click", () => {
 
-timeline.value=music.currentTime;
+    music.muted = !music.muted;
 
-});
-
-timeline.addEventListener("input",()=>{
-
-music.currentTime=timeline.value;
+    if (music.muted) {
+        muteBtn.innerHTML = "🔇";
+    } else {
+        muteBtn.innerHTML = "🔊";
+    }
 
 });
 
