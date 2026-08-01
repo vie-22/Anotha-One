@@ -654,7 +654,16 @@ box-sizing:border-box;
 
 body{
 font-family:'Poppins',sans-serif;
-background:#ffd9e8;
+background:
+linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 38px,
+    #f3d6df 39px
+);
+
+background-size:100% 40px;
+background-color:#fffef9;
 overflow:hidden;
 }
    
@@ -780,15 +789,28 @@ z-index:5;
 width:90%;
 max-width:850px;
 margin:auto;
-background:#fffef9;
+
+background:
+linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 38px,
+    #f3d6df 39px
+);
+
+background-size:100% 40px;
+background-color:#fffef9;
+
 padding:60px;
+
 border-radius:15px;
 box-shadow:0 10px 35px rgba(0,0,0,.15);
 
 font-family:'Caveat',cursive;
 font-size:32px;
-line-height:1.8;
+line-height:1.25;
 color:#444;
+
 white-space:pre-wrap;
 
 /* Unfold animation */
