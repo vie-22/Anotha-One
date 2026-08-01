@@ -65,49 +65,48 @@ z-index:2;
 }
 
 #photo{
-    width:auto;
-    height:auto;
-    max-width:250px;
-    max-height:250px;
+    width:250px;
+    height:250px;
 
     object-fit:contain;
+    background:transparent;
+    border:none;
+    box-shadow:none;
 
-    background:none !important;
-    border:none !important;
-    border-radius:0 !important;
-    box-shadow:none !important;
-    outline:none !important;
+    cursor:pointer;
 
-    display:block;
+    animation:heartbeat 1.6s ease-in-out infinite;
+
+    transform-origin:center center;
+    transition:transform .3s;
 }
 @keyframes heartbeat{
 
-0%{
-transform:scale(1);
-}
+    0%{
+        transform:scale(1);
+    }
 
-10%{
-transform:scale(1.05);
-}
+    12%{
+        transform:scale(1.12);
+    }
 
-20%{
-transform:scale(.98);
-}
+    24%{
+        transform:scale(0.98);
+    }
 
-30%{
-transform:scale(1.08);
-}
+    36%{
+        transform:scale(1.15);
+    }
 
-40%{
-transform:scale(1);
-}
+    48%{
+        transform:scale(1);
+    }
 
-100%{
-transform:scale(1);
-}
+    100%{
+        transform:scale(1);
+    }
 
 }
-
 /* Loading */
 
 #loading{
