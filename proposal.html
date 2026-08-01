@@ -297,35 +297,6 @@ no.addEventListener("touchstart", runAway);
 
 // Just in case someone clicks it
 no.addEventListener("click", runAway);
-// Desktop
-no.addEventListener("mouseenter", moveNoButton);
-
-// Mobile
-no.addEventListener("touchstart", function(e){
-    e.preventDefault();
-    moveNoButton();
-});
-
-// If someone somehow clicks it
-no.addEventListener("click", function(e){
-    e.preventDefault();
-    moveNoButton();
-});
-
-// Desktop
-no.addEventListener("mouseenter", moveNoButton);
-
-// Mobile
-no.addEventListener("touchstart", function(e){
-    e.preventDefault();
-    moveNoButton();
-});
-
-// If they somehow click it anyway
-no.addEventListener("click", function(e){
-    e.preventDefault();
-    moveNoButton();
-});
 
 </script>
 
