@@ -541,40 +541,31 @@ photo.onclick = () => {
 
     setTimeout(() => {
 
-    loading.style.display = "none";
-    letter.style.display = "block";
-
-    // Unfold the paper
-    setTimeout(() => {
-
-    loading.style.display = "none";
-    letter.style.display = "block";
-
-    // Unfold the paper
-    setTimeout(() => {
-
-    loading.style.display = "none";
-    letter.style.display = "block";
-
-    // Unfold the paper
-    setTimeout(() => {
+        loading.style.display = "none";
+        letter.style.display = "block";
 
         const paper = document.querySelector(".paper");
 
-        paper.style.opacity = "1";
-        paper.style.transform =
-            "perspective(1200px) rotateX(0deg) scale(1)";
+// Unfold the paper
+setTimeout(() => {
 
-    }, 100);
+    paper.style.opacity = "1";
+    paper.style.transform =
+        "perspective(1200px) rotateX(0deg) scale(1)";
+    paper.classList.add("show");
 
-    // Show the music player
-    player.style.display = "flex";
+}, 500);
 
-    setTimeout(() => {
-        player.style.top = "20px";
-    }, 50);
+        // Show the music player
+        player.style.display = "flex";
 
-}, 2500);
+        setTimeout(() => {
+            player.style.top = "20px";
+        }, 700);
+
+    }, 2500);
+
+};
 };
 
 // ===========================
