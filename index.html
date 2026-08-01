@@ -71,17 +71,42 @@ border-radius:20px;
 object-fit:cover;
 cursor:pointer;
 box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+animation:heartbeat 2s infinite;
 transition:.3s;
 }
 
 #photo:hover{
+animation-play-state:paused;
+transform:scale(1.06);
+}
+
+@keyframes heartbeat{
+
+0%{
+transform:scale(1);
+}
+
+10%{
 transform:scale(1.05);
 }
 
-.tap{
-margin-top:20px;
-font-size:20px;
-color:#b94d77;
+20%{
+transform:scale(.98);
+}
+
+30%{
+transform:scale(1.08);
+}
+
+40%{
+transform:scale(1);
+}
+
+100%{
+transform:scale(1);
+}
+
 }
 
 /* Loading */
@@ -115,11 +140,26 @@ background:#fffef9;
 padding:60px;
 border-radius:15px;
 box-shadow:0 10px 35px rgba(0,0,0,.15);
+
 font-family:'Caveat',cursive;
 font-size:32px;
 line-height:1.8;
 color:#444;
 white-space:pre-wrap;
+
+/* Unfold animation */
+opacity:0;
+
+transform:
+perspective(1200px)
+rotateX(-80deg)
+scale(.92);
+
+transform-origin:top center;
+
+transition:
+transform 1.2s ease,
+opacity 1s ease;
 }
 
 /* ===========================
@@ -374,7 +414,9 @@ Don't be shy, tap me! 💗
 
 <div id="loading">
 
-Loading Vie's message...
+<span id="loadingText">
+Loading Vie's message
+</span>
 
 </div>
 
@@ -477,7 +519,19 @@ const letter=document.getElementById("letterPage");
 
 const music=document.getElementById("music");
 const player=document.getElementById("player");
+const loadingText = document.getElementById("loadingText");
 
+let dots = 0;
+
+setInterval(()=>{
+
+dots=(dots+1)%4;
+
+loadingText.textContent=
+"Loading Vie's message"+ ".".repeat(dots);
+
+},450);
+   
 photo.onclick = () => {
 
     music.play();
@@ -487,15 +541,40 @@ photo.onclick = () => {
 
     setTimeout(() => {
 
-        loading.style.display = "none";
-        letter.style.display = "block";
+    loading.style.display = "none";
+    letter.style.display = "block";
 
-        // Show the player only after the letter appears
-       player.style.display = "flex";
-player.style.flexDirection = "column";
+    // Unfold the paper
+    setTimeout(() => {
 
-    }, 2500);
+    loading.style.display = "none";
+    letter.style.display = "block";
 
+    // Unfold the paper
+    setTimeout(() => {
+
+    loading.style.display = "none";
+    letter.style.display = "block";
+
+    // Unfold the paper
+    setTimeout(() => {
+
+        const paper = document.querySelector(".paper");
+
+        paper.style.opacity = "1";
+        paper.style.transform =
+            "perspective(1200px) rotateX(0deg) scale(1)";
+
+    }, 100);
+
+    // Show the music player
+    player.style.display = "flex";
+
+    setTimeout(() => {
+        player.style.top = "20px";
+    }, 50);
+
+}, 2500);
 };
 
 // ===========================
