@@ -540,7 +540,9 @@ loadingText.textContent=
    
 photo.onclick = () => {
 
-    music.play();
+  music.play().catch(err => {
+    console.log(err);
+});
 
     intro.style.display = "none";
     loading.style.display = "flex";
