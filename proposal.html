@@ -224,8 +224,22 @@ padding:12px 28px;
 
 </div>
 
+<audio id="bgMusic" loop>
+    <source src="proposal-music.mp3" type="audio/mpeg">
+</audio>
+    
 <script>
 
+/* Background Music */
+
+const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.volume = 0.4; // 40% volume
+
+window.addEventListener("load", () => {
+    bgMusic.play().catch(err => console.log(err));
+});
+    
 /* Hearts */
 
 const hearts=document.getElementById("hearts");
