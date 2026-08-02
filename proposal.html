@@ -230,11 +230,14 @@ padding:12px 28px;
 
 const bgMusic = document.getElementById("bgMusic");
 
+    console.log("Audio source:", bgMusic.currentSrc);
+
+bgMusic.addEventListener("error", () => {
+    console.log("❌ Couldn't load TS.mp3");
+});
+
 bgMusic.volume = 0.4; // 40% volume
 
-document.addEventListener("click", function startMusic() {
-    bgMusic.play();
-    document.removeEventListener("click", startMusic);
 });
 
 /* Hearts */
