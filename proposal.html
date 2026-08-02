@@ -170,13 +170,9 @@ background:#ff6ea2;
 }
 
 #no{
-
 background:white;
-
 color:#b84d73;
-
-position:relative;
-
+position:static;
 }
 
 @media(max-width:500px){
@@ -279,28 +275,25 @@ const no = document.getElementById("no");
 let escapes = 0;
 const maxEscapes = 15; // Change to 20, 30, etc. if you want
 
-function runAway(e) {
+function runAway(e){
 
     e.preventDefault();
 
-    if (escapes >= maxEscapes) {
-        no.style.transition = "0.4s";
+    if(escapes >= maxEscapes){
         no.style.opacity = "0";
-        no.style.transform = "scale(0)";
         no.style.pointerEvents = "none";
         return;
     }
 
     escapes++;
 
-    const padding = 20;
-
-    const x = Math.random() * (window.innerWidth - no.offsetWidth - padding);
-    const y = Math.random() * (window.innerHeight - no.offsetHeight - padding);
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
 
     no.style.position = "fixed";
     no.style.left = x + "px";
     no.style.top = y + "px";
+    no.style.zIndex = "9999";
 }
 
 // Desktop
