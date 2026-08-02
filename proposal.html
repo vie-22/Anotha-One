@@ -208,73 +208,72 @@ padding:12px 28px;
 
 <div class="paper">
 
-<h1>May I please<br>be your Girlfriend? 💗</h1>
+    <h1>May I please<br>be your Girlfriend? 💗</h1>
 
-<div class="buttons">
-
-<button id="yes">Yes 💖</button>
-
-<button id="no">No 🙈</button>
-
-</div>
+    <div class="buttons">
+        <button id="yes">Yes 💖</button>
+        <button id="no">No 🙈</button>
+    </div>
 
 </div>
 
 <audio id="bgMusic" loop>
     <source src="TS.mp3" type="audio/mpeg">
 </audio>
-    
+
 <script>
 
-/* Background Music */
+/* ===========================
+   Background Music
+=========================== */
 
 const bgMusic = document.getElementById("bgMusic");
-
 bgMusic.volume = 0.4;
 
-bgMusic.addEventListener("error", () => {
-    console.log("Couldn't load TS.mp3");
-});
+/* ===========================
+   Floating Hearts
+=========================== */
 
-document.getElementById("yes").addEventListener("click", () => {
-    bgMusic.play();
+const hearts = document.getElementById("hearts");
 
-    alert("WOWOWOWOWOWOWOW 💖");
-});
+for(let i = 0; i < 30; i++){
 
-/* Hearts */
+    const h = document.createElement("div");
 
-const hearts=document.getElementById("hearts");
+    h.className = "heart";
+    h.innerHTML = "❤";
 
-for(let i=0;i<30;i++){
+    h.style.left = Math.random()*100 + "%";
+    h.style.fontSize = (10 + Math.random()*14) + "px";
+    h.style.animationDuration = (10 + Math.random()*8) + "s";
+    h.style.animationDelay = Math.random()*8 + "s";
 
-let h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML="❤";
-
-h.style.left=Math.random()*100+"%";
-
-h.style.fontSize=(10+Math.random()*14)+"px";
-
-h.style.animationDuration=(10+Math.random()*8)+"s";
-
-h.style.animationDelay=Math.random()*8+"s";
-
-hearts.appendChild(h);
+    hearts.appendChild(h);
 
 }
 
-/* Yes */
+/* ===========================
+   YES BUTTON
+=========================== */
 
-document.getElementById("yes").onclick = () => {
-    bgMusic.play();
+const yes = document.getElementById("yes");
+
+yes.addEventListener("click", async () => {
+
+    try{
+        await bgMusic.play();
+    }catch(err){
+        console.log(err);
+    }
+
     alert("WOWOWOWOWOWOWOW 💖");
-};
 
-    /*NO*/
-    
+});
+
+/* ===========================
+   NO BUTTON
+=========================== */
+
 const no = document.getElementById("no");
 
 let escapes = 0;
@@ -283,46 +282,52 @@ const maxEscapes = 15;
 function runAway(){
 
     if(escapes >= maxEscapes){
+
+        no.style.transition = "0.4s";
         no.style.opacity = "0";
+        no.style.transform = "scale(0)";
         no.style.pointerEvents = "none";
+
         return;
     }
 
     escapes++;
 
-    const x = Math.random() * (window.innerWidth - no.offsetWidth);
-    const y = Math.random() * (window.innerHeight - no.offsetHeight);
+    const x = Math.random() * (window.innerWidth - no.offsetWidth - 20);
+    const y = Math.random() * (window.innerHeight - no.offsetHeight - 20);
 
     no.style.position = "fixed";
     no.style.left = x + "px";
     no.style.top = y + "px";
     no.style.zIndex = "9999";
+
 }
 
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("mousemove",(e)=>{
 
-    if(no.style.pointerEvents === "none") return;
+    if(no.style.pointerEvents==="none") return;
 
-    const rect = no.getBoundingClientRect();
+    const rect=no.getBoundingClientRect();
 
-    const dx = e.clientX - (rect.left + rect.width/2);
-    const dy = e.clientY - (rect.top + rect.height/2);
+    const dx=e.clientX-(rect.left+rect.width/2);
+    const dy=e.clientY-(rect.top+rect.height/2);
 
-    if(Math.sqrt(dx*dx + dy*dy) < 120){
+    if(Math.sqrt(dx*dx+dy*dy)<120){
         runAway();
     }
+
 });
 
-no.addEventListener("touchstart", function(e){
+no.addEventListener("touchstart",(e)=>{
     e.preventDefault();
     runAway();
 });
 
-no.addEventListener("click", function(e){
+no.addEventListener("click",(e)=>{
     e.preventDefault();
     runAway();
 });
-    
+
 </script>
 
 </body>
