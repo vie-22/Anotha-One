@@ -220,7 +220,7 @@ padding:12px 28px;
 
 </div>
 
-<<audio id="bgMusic" loop>
+<audio id="bgMusic" loop>
     <source src="TS.mp3" type="audio/mpeg">
 </audio>
     
@@ -230,14 +230,16 @@ padding:12px 28px;
 
 const bgMusic = document.getElementById("bgMusic");
 
-    console.log("Audio source:", bgMusic.currentSrc);
+bgMusic.volume = 0.4;
 
 bgMusic.addEventListener("error", () => {
-    console.log("❌ Couldn't load TS.mp3");
+    console.log("Couldn't load TS.mp3");
 });
 
-bgMusic.volume = 0.4; // 40% volume
+document.getElementById("yes").addEventListener("click", () => {
+    bgMusic.play();
 
+    alert("WOWOWOWOWOWOWOW 💖");
 });
 
 /* Hearts */
@@ -266,8 +268,6 @@ hearts.appendChild(h);
 
 /* Yes */
 
-/* Yes */
-
 document.getElementById("yes").onclick = () => {
 
     bgMusic.play(); // Start the proposal music
@@ -285,7 +285,7 @@ const maxEscapes = 15;
 
 function runAway(e){
 
-    e.preventDefault();
+    if(e) e.preventDefault();
 
     if(escapes >= maxEscapes){
         no.style.opacity = "0";
@@ -303,8 +303,19 @@ function runAway(e){
     no.style.top = y + "px";
 }
 
-no.addEventListener("mouseenter", runAway);
-no.addEventListener("mouseover", runAway);
+document.addEventListener("mousemove", (e) => {
+
+    const rect = no.getBoundingClientRect();
+
+    const dx = e.clientX - (rect.left + rect.width / 2);
+    const dy = e.clientY - (rect.top + rect.height / 2);
+
+    if (Math.sqrt(dx * dx + dy * dy) < 120) {
+        runAway();
+    }
+
+});
+
 no.addEventListener("touchstart", runAway);
 no.addEventListener("click", runAway);
     
