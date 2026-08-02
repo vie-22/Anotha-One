@@ -277,7 +277,7 @@ const maxEscapes = 15; // Change to 20, 30, etc. if you want
 
 function runAway(e){
 
-    e.preventDefault();
+    if(e) e.preventDefault();
 
     if(escapes >= maxEscapes){
         no.style.opacity = "0";
@@ -287,8 +287,8 @@ function runAway(e){
 
     escapes++;
 
-    const x = Math.random() * (window.innerWidth - 120);
-    const y = Math.random() * (window.innerHeight - 60);
+    const x = Math.random() * (window.innerWidth - no.offsetWidth - 20);
+    const y = Math.random() * (window.innerHeight - no.offsetHeight - 20);
 
     no.style.position = "fixed";
     no.style.left = x + "px";
@@ -296,13 +296,24 @@ function runAway(e){
     no.style.zIndex = "9999";
 }
 
-// Desktop
-no.addEventListener("mouseover", runAway);
+// Desktop - run away when mouse gets close
+document.addEventListener("mousemove", (e) => {
+
+    const rect = no.getBoundingClientRect();
+
+    const distanceX = Math.abs(e.clientX - (rect.left + rect.width / 2));
+    const distanceY = Math.abs(e.clientY - (rect.top + rect.height / 2));
+
+    if (distanceX < 80 && distanceY < 60) {
+        runAway(e);
+    }
+
+});
 
 // Mobile
 no.addEventListener("touchstart", runAway);
 
-// Just in case someone clicks it
+// If somehow clicked
 no.addEventListener("click", runAway);
 
 </script>
