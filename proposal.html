@@ -228,7 +228,32 @@ padding:12px 28px;
 =========================== */
 
 const bgMusic = document.getElementById("bgMusic");
-bgMusic.volume = 0.4;
+
+bgMusic.volume = 0; // start silent
+bgMusic.currentTime = 45; // start at 45 seconds
+
+function fadeInMusic(){
+
+    let volume = 0;
+
+    bgMusic.volume = volume;
+
+    const fade = setInterval(()=>{
+
+        if(volume < 0.4){
+
+            volume += 0.02;
+            bgMusic.volume = volume;
+
+        }else{
+
+            clearInterval(fade);
+
+        }
+
+    },100);
+
+}
 
 /* ===========================
    Floating Hearts
@@ -261,9 +286,16 @@ const yes = document.getElementById("yes");
 yes.addEventListener("click", async () => {
 
     try{
+
+        bgMusic.currentTime = 45; // begin at 45 seconds
         await bgMusic.play();
+
+        fadeInMusic(); // fade in after playing
+
     }catch(err){
+
         console.log(err);
+
     }
 
     alert("WOWOWOWOWOWOWOW 💖");
